@@ -16,7 +16,7 @@ namespace Midas::XSES::ITCH
 
 #pragma pack(push, 1)
 
-struct DownstreampacketHeader
+struct MoldUDP64Header
 {
 	Alpha_t<SESSION_LENGTH> session;
 	uint64_t sequenceNumber;
@@ -35,10 +35,10 @@ struct DownstreampacketHeader
 	}
 	static constexpr std::size_t get_size() noexcept
 	{
-		return sizeof(DownstreampacketHeader);
+		return sizeof(MoldUDP64Header);
 	}
 };
-static_assert(DownstreampacketHeader::get_size() == DOWNSTREAMPACKET_HEADER_LENGTH);
+static_assert(MoldUDP64Header::get_size() == DOWNSTREAMPACKET_HEADER_LENGTH);
 
 #pragma pack(pop)
 } // namespace Midas::XSES::ITCH
