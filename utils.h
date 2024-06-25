@@ -38,7 +38,9 @@ std::string alpha_to_string(const Alpha_t<Size>& s)
     for (int i = Size; i > 0; --i)
     {
         // remove padding?
-        if (s[i - 1] != '\0') return std::string(s.data(), i);
+        // padded with ' ' from right to left
+        // viewtodo: how do we know padded with empty space?
+        if (s[i - 1] != ' ') return std::string(s.data(), i);
     }
     return std::string();
 }

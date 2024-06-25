@@ -143,7 +143,7 @@ void callback(u_char *additional_args, const struct pcap_pkthdr *hdr, const u_ch
      * */
     if (msgCnt == 0)
     {
-        std::cout<<"heartbeat, next expected sequence number: "<<seqNum<<std::endl;
+        // std::cout<<"heartbeat, next expected sequence number: "<<seqNum<<std::endl;
         // printf("heartbeat, next expected sequence number: %016x\n", seqNum);
         return;
     }
@@ -154,7 +154,7 @@ void callback(u_char *additional_args, const struct pcap_pkthdr *hdr, const u_ch
          * re-requests may be made on the current session.
          * This is the last chance to ensure that all messages have been received
          */
-        std::cout<<"end of session, next expected sequence number: "<<seqNum<<std::endl;
+        // std::cout<<"end of session, next expected sequence number: "<<seqNum<<std::endl;
         // printf("end of session, next expected sequence number: %016x\n", seqNum);
         return;
     }
@@ -189,7 +189,7 @@ int main(int argc, char const *argv[])
     }
 
     u_char *additional_args = NULL;
-    pcap_loop(pcap, 20, callback, additional_args);
+    pcap_loop(pcap, -1, callback, additional_args);
 
     return 0;
 }

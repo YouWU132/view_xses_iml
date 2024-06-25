@@ -60,7 +60,7 @@ namespace Midas::XSES::ITCH
             char buffer[1024];
             std::sprintf(buffer, "%c,%u",
                 static_cast<char>(messageType),
-                second);
+                big_endian_to_host(second));
             return buffer;
         }
     };
